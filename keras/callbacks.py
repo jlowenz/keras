@@ -879,7 +879,7 @@ class TensorBoard(Callback):
                     tensors += [K.learning_phase()]
 
                 # filter None elements
-                tensors = filter(lambda x: x is not None, tensors)
+                tensors = list(filter(lambda x: x is not None, tensors))
                 assert len(val_data) == len(tensors)
                 val_size = val_data[0].shape[0]
                 i = 0
